@@ -6,7 +6,10 @@ angular.module('app', ['ngRoute']).config(['$routeProvider', '$locationProvider'
     $routeProvider.when('/', {
         templateUrl: 'partials/main.html',
         controller: 'homeController'
-    }).otherwise({
+    }).when('/categoria',{
+		controller: 'categoriaController',
+		templateUrl: 'partials/categoria.html'
+	}).otherwise({
         redirectTo: '/'
     });
     
