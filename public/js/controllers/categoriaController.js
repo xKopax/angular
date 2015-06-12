@@ -1,7 +1,7 @@
-angular.module("app").controller('categoriaController', ['$scope', 'CategoriaService', function ($scope, CategoriaService) {
+angular.module("app").controller('categoriaController', function ($scope, CategoriaService) {
 
   var categorias = CategoriaService.query(function() {
     console.log(categorias);
   });
 
-}]);
+});

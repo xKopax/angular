@@ -1,5 +1,5 @@
-angular.module("app").controller('homeController', ['$scope', function ($scope) {
+angular.module("app").controller('homeController', function ($scope) {
 
     $scope.home = 'Home';
 
-}]);
+});
