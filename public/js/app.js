@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('app', ['ngRoute']).config(['$routeProvider', '$locationProvider', '$httpProvider',
+angular.module('app', ['ngRoute','ngResource']).config(['$routeProvider', '$locationProvider', '$httpProvider',
     function($routeProvider, $locationProvider, $httpProvider) {
 
     $routeProvider.when('/', {
@@ -12,5 +12,5 @@ angular.module('app', ['ngRoute']).config(['$routeProvider', '$locationProvider'
 	}).otherwise({
         redirectTo: '/'
     });
-    
+
 }]);
