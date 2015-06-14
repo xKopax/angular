@@ -20,13 +20,16 @@ angular.module("app").controller('categoriaController', function ($scope, Catego
     $scope.categorias = CategoriaService.query();
   }
 
-  $scope.categoria = CategoriaService.show({id: $routeParams.id});
-
-  $scope.save = function () {
-    !$routeParams.id ? CategoriaService.create($scope.categoria) : CategoriaService.update($scope.categoria)
-    CategoriaService.create($scope.categoria);
-    $location.path('/categorias');
+  if($routeParams.id) {
+    $scope.categoria = CategoriaService.show({id: $routeParams.id});
+  } else {
+    loadCategorias();
   }
 
-  loadCategorias();
+  $scope.save = function () {
+    !$routeParams.id ? CategoriaService.create($scope.categoria) : CategoriaService.update($scope.categoria);
+
+    $location.path('/categorias');
+  }
+  
 });

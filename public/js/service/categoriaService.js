@@ -7,5 +7,5 @@ angular.module("app").factory('CategoriaService', function($resource, config) {
 			delete: { method: 'DELETE', params: {id: '@id'} },
 			create: { method: 'POST' }
 	})
-	
+
 });
