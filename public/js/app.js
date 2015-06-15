@@ -3,6 +3,8 @@
 angular.module('app', ['ngRoute','ngResource']).config(['$routeProvider', '$locationProvider', '$httpProvider',
 function($routeProvider, $locationProvider, $httpProvider) {
 
+  $httpProvider.interceptors.push('authInterceptor');
+
   $routeProvider.when('/', {
     templateUrl: 'partials/main.html',
     controller: 'homeController'

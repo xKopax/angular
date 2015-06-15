@@ -1,11 +1,13 @@
 <div class="container">
+
 	<form>
-		   {{msgm}}
-		   <div class="form-group">
-			   <label for="descricao">Descrição:</label>
-		   	 <input type="text" class="form-control" id="descricao" ng-model="categoria.tipo"/>
-		   </div>
-		   <a ng-click="save()" class="btn btn-default">Salvar</a>
-			 <a ng-click="cancel()" class="btn btn-default">cancel</a>
+		    {{msgm}}
+		    <div class="form-group">
+			    <label for="descricao">Descrição:</label>
+		   		<input type="text" class="form-control" id="descricao" ng-model="categoria.tipo" required/>
+		   	</div>
+		   	<a ng-click="save()" class="btn btn-default">Salvar</a>
+			<a ng-click="cancel()" class="btn btn-default">cancel</a>
 	</form>
+
 </div>
