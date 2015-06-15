@@ -27,9 +27,23 @@ angular.module("app").controller('categoriaController', function ($scope, Catego
   }
 
   $scope.save = function () {
-    !$routeParams.id ? CategoriaService.create($scope.categoria) : CategoriaService.update($scope.categoria);
-
-    $location.path('/categorias');
+    !$routeParams.id ? incluir() : alterar();
   }
-  
+
+  incluir = function(){
+    CategoriaService.create($scope.categoria).$promise.then(function(data){
+      $location.path('/categorias');
+    }).catch(function(error){
+      console.log(error);
+    })
+  }
+
+  alterar = function(){
+    CategoriaService.update($scope.categoria).$promise.then(function(data){
+      $location.path('/categorias');
+    }).catch(function(error){
+      console.log(error);
+    })
+  }
+
 });
