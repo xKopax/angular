@@ -1,11 +1,13 @@
-angular.module("app").controller('categoriaController', function ($scope, CategoriaService, $location,$routeParams) {
+angular.module("app").controller('categoriaController', function ($scope, CategoriaService, $location, $routeParams, lodash) {
 
   $scope.editCategoria = function (categoriaId) {
       $location.path('/categoria/detail/' + categoriaId);
   };
 
   $scope.deleteCategoria = function (categoriaId) {
-      CategoriaService.delete({ id: categoriaId },loadCategorias);
+      CategoriaService.delete({ id: categoriaId }, function(){
+        lodash.remove($scope.categorias, { id: categoriaId });
+      });
   };
 
   $scope.createNewCategoria = function () {

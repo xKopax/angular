@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('app', ['ngRoute','ngResource']).config(['$routeProvider', '$locationProvider', '$httpProvider',
+angular.module('app', ['ngRoute','ngResource', 'ngLodash']).config(['$routeProvider', '$locationProvider', '$httpProvider',
 function($routeProvider, $locationProvider, $httpProvider) {
 
   $httpProvider.interceptors.push('authInterceptor');
