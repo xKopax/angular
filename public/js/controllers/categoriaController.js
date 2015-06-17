@@ -1,5 +1,6 @@
 angular.module("app").controller('categoriaController', function ($scope, CategoriaService, $location, $routeParams, lodash) {
   var p = 1;
+  var busy = false;
 
   $scope.editCategoria = function (categoriaId) {
       $location.path('/categoria/detail/' + categoriaId);
@@ -24,13 +25,16 @@ angular.module("app").controller('categoriaController', function ($scope, Catego
   }
 
   $scope.nextPage = function(){
+    if (busy) return;
+    busy = true;
     CategoriaService.query({page:p}).$promise.then(
       function(data){
         console.log(data);
         for (var i = 0; i < data.length; i++) {
           $scope.categorias.push(data[i]);
-          p++;
         }
+        p++;
+        busy = false;
       }
     ).catch(function(error){
       console.log(error);
