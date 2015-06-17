@@ -1,4 +1,5 @@
 angular.module("app").controller('categoriaController', function ($scope, CategoriaService, $location, $routeParams, lodash) {
+  var p = 1;
 
   $scope.editCategoria = function (categoriaId) {
       $location.path('/categoria/detail/' + categoriaId);
@@ -20,6 +21,22 @@ angular.module("app").controller('categoriaController', function ($scope, Catego
 
   function loadCategorias(){
     $scope.categorias = CategoriaService.query();
+  }
+
+  $scope.nextPage = function(){
+    CategoriaService.query({page:p}).$promise.then(
+      function(data){
+        console.log(data);
+        for (var i = 0; i < data.length; i++) {
+          $scope.categorias.push(data[i]);
+          p++;
+        }
+      }
+    ).catch(function(error){
+      console.log(error);
+    })
+
+
   }
 
   if($routeParams.id) {
