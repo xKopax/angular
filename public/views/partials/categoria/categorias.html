@@ -14,11 +14,21 @@
           <tr ng-repeat="categoria in categorias">
               <td>{{ categoria.id }}</td>
               <td>{{ categoria.tipo }}</td>
-              <td><a ng-click="editCategoria(categoria.id)" class="btn btn-sm btn-primary">Editar</a></td>
-              <td><a confirm-click="deleteCategoria(categoria.id)" confirm-message="Are you sure?" class="btn btn-sm btn-danger">Remover</a></td>
+              <td>
+                <a ng-click="editCategoria(categoria.id)" class="btn btn-sm btn-primary">
+                  Editar
+                </a>
+              </td>
+              <td>
+                <a confirm-click="deleteCategoria(categoria.id)" confirm-message="Confirmar exclusão?" class="btn btn-sm btn-danger">  Remover
+                </a>
+              </td>
           </tr>
           </tbody>
       </table>
       <td><a ng-click="loop()" class="btn btn-sm btn-primary">loop</a></td>
     </div>
+
+
+
 </div>

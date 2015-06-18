@@ -30,7 +30,8 @@ angular.module("app").controller('categoriaController', function ($scope, Catego
     CategoriaService.query({page:p}).$promise.then(
       function(data){
         for (var i = 0; i < data.length; i++) {
-          $scope.categorias.push(data[i]);
+          if ($scope.categorias.indexOf(data[i]) == 0)
+            $scope.categorias.push(data[i]);
         }
         p++;
         busy = false;
