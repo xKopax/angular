@@ -25,7 +25,7 @@ module.exports = function() {
 
 	function applicationConfig(){
 
-		var NODE_HOST_CLI = process.env.NODE_HOST_CLI;
+		var NODE_HOST_CLI = '192.168.77.79';//process.env.NODE_HOST_CLI;
 		var NODE_PORT_CLI = process.env.NODE_PORT_CLI;
 
 		return {

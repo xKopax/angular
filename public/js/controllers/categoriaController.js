@@ -29,7 +29,6 @@ angular.module("app").controller('categoriaController', function ($scope, Catego
     busy = true;
     CategoriaService.query({page:p}).$promise.then(
       function(data){
-        console.log(data);
         for (var i = 0; i < data.length; i++) {
           $scope.categorias.push(data[i]);
         }
@@ -67,6 +66,18 @@ angular.module("app").controller('categoriaController', function ($scope, Catego
     }).catch(function(error){
       console.log(error);
     })
+  }
+
+   $scope.loop = function(){
+    console.log('data');
+    for (var i = 0; i < 500; i++) {
+      console.log('data');
+      CategoriaService.create({tipo: 'Categoria '+1}).$promise.then(function(data){
+        console.log(data);
+      }).catch(function(error){
+        console.log(error);
+      });
+    };
   }
 
 });
