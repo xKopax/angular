@@ -39,8 +39,6 @@ angular.module("app").controller('usuarioController', function ($scope, UsuarioS
     ).catch(function(error){
       console.log(error);
     })
-
-
   }
 
   if($routeParams.id) {
