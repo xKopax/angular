@@ -1,4 +1,4 @@
-angular.module("app").controller('categoriaController', function ($scope, CategoriaService, $location, $routeParams, lodash) {
+angular.module("app").controller('categoriaController', function ($scope, CategoriaService, $location, $routeParams, lodash,$mdDialog) {
   var p = 1;
   var busy = false;
 
@@ -6,11 +6,25 @@ angular.module("app").controller('categoriaController', function ($scope, Catego
       $location.path('/categoria/detail/' + categoriaId);
   };
 
-  $scope.deleteCategoria = function (categoriaId) {
+  $scope.deleteCategoria = function (ev,categoriaId) {
+    var confirm = $mdDialog.confirm()
+      .parent(angular.element(document.body))
+      .title('Atenção?')
+      .content('Deseja excluir o registro?')
+      .ariaLabel('Lucky day')
+      .ok('Sim')
+      .cancel('Não')
+      .targetEvent(ev);
+
+    $mdDialog.show(confirm).then(function() {
       CategoriaService.delete({ id: categoriaId }, function(){
         lodash.remove($scope.categorias, { id: categoriaId });
       });
+    }, function() {
+      console.log('faz nada =)');
+    });
   };
+
 
   $scope.createNewCategoria = function () {
       $location.path('/categoria/new');
@@ -30,7 +44,7 @@ angular.module("app").controller('categoriaController', function ($scope, Catego
     CategoriaService.query({page:p}).$promise.then(
       function(data){
         for (var i = 0; i < data.length; i++) {
-          if ($scope.categorias.indexOf(data[i]) == 0)
+          //if ($scope.categorias.indexOf(data[i]) == 0)
             $scope.categorias.push(data[i]);
         }
         p++;

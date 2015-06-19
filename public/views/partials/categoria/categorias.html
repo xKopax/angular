@@ -1,6 +1,6 @@
 <div class="container">
     <a ng-click="createNewCategoria()" class="btn btn-small">Adicionar</a>
-    <div infinite-scroll="nextPage()" infinite-scroll-distance="3"></div>
+    <div infinite-scroll="nextPage()" infinite-scroll-distance="3">
       <table class="table table-striped table-condensed table-hover">
           <thead>
           <tr>
@@ -20,15 +20,11 @@
                 </a>
               </td>
               <td>
-                <a confirm-click="deleteCategoria(categoria.id)" confirm-message="Confirmar exclusão?" class="btn btn-sm btn-danger">  Remover
+                <a ng-click="deleteCategoria($event,categoria.id)" class="btn btn-sm btn-danger">  Remover
                 </a>
               </td>
           </tr>
           </tbody>
       </table>
-      <td><a ng-click="loop()" class="btn btn-sm btn-primary">loop</a></td>
     </div>
-
-
-
 </div>
