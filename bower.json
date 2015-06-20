@@ -21,6 +21,7 @@
     "ng-lodash": "~0.2.3",
     "ngInfiniteScroll": "~1.2.1",
     "angular-confirm-click": "~0.0.4",
-    "angular-material": "~0.10.0"
+    "angular-material": "~0.10.0",
+    "angular-input-masks": "~1.5.1"
   }
 }

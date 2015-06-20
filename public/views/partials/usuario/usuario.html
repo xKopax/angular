@@ -25,7 +25,7 @@
 		   </div>
 		   <div class="form-group col-sm-4">
 			 <label for="telefone">Telefone:</label>
-			 <input type="text" class="form-control" id="telefone" ng-model="usuario.telefone" required ng-minlength="9"/>
+			 <input type="text" class="form-control" id="telefone" ng-model="usuario.telefone" required ng-minlength="9" ui-br-phone-number/>
 		   </div>
 		</div>
 
@@ -38,21 +38,50 @@
 				</div>
 				<div class="form-group col-sm-2">
 					 <label for="numero">Número:</label>
-					 <input type="text" class="form-control" id="numero" ng-model="usuario.endereco.numero"/>
+					 <input type="text" class="form-control" id="numero" ng-model="usuario.endereco.numero" />
 				</div>
 			</div>
 			<div class="row">
 				<div class="form-group col-sm-6">
 					 <label for="cidade">Cidade:</label>
-					 <input type="text" class="form-control" id="cidade"/>
+					 <input type="text" class="form-control" id="cidade" ng-model="usuario.endereco.cidade"/>
 				</div>
 				<div class="form-group col-sm-2">
 					 <label for="estado">UF:</label>
-					 <input type="text" class="form-control" id="estado"/>
+					 <select class="form-control" id="estado" ng-model="usuario.endereco.estado">
+							<option value=""></option>
+							<option value="AC">AC</option>
+							<option value="AL">AL</option>
+							<option value="AM">AM</option>
+							<option value="AP">AP</option>
+							<option value="BA">BA</option>
+							<option value="CE">CE</option>
+							<option value="DF">DF</option>
+							<option value="ES">ES</option>
+							<option value="GO">GO</option>
+							<option value="MA">MA</option>
+							<option value="MG">MG</option>
+							<option value="MS">MS</option>
+							<option value="MT">MT</option>
+							<option value="PA">PA</option>
+							<option value="PB">PB</option>
+							<option value="PE">PE</option>
+							<option value="PI">PI</option>
+							<option value="PR">PR</option>
+							<option value="RJ">RJ</option>
+							<option value="RN">RN</option>
+							<option value="RS">RS</option>
+							<option value="RO">RO</option>
+							<option value="RR">RR</option>
+							<option value="SC">SC</option>
+							<option value="SE">SE</option>
+							<option value="SP">SP</option>
+							<option value="TO">TO</option>
+					 </select>
 				</div>
 				<div class="form-group col-sm-4">
 					 <label for="cep">CEP:</label>
-					 <input type="text" class="form-control" id="cep"/>
+					 <input type="text" class="form-control" id="cep" ng-model="usuario.endereco.cep" ui-br-cep-mask/>
 				</div>
 			</div>
 		</fieldset>
