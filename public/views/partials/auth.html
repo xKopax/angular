@@ -1,5 +1,25 @@
-<form>
+<div class="container">
 
-	<h2>Sem acesso</h2>
+	<form name="frm">
 
-</form>
+		<div >
+			<h2>Login</h2>
+		</div>
+		{{message}}
+
+
+		<div class="input-group">
+			<input type="text" placeholder="E-mail" ng-model="usuario.email" name="email" class="form-control" ng-required="true">
+		</div>
+
+		<div class="input-group">
+			<input class="form-control" type="password" ng-model="usuario.senha" name="senha" placeholder="Senha" ng-required="true" ng-minlength="3">
+		</div>
+
+		<div>
+			<a ng-click="login(usuario)" class="btn btn-default btn-sm">Logar</a>
+		</div>
+
+	</form>
+
+</div>

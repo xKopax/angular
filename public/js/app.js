@@ -26,6 +26,9 @@ function($routeProvider, $locationProvider, $httpProvider) {
   }).when('/usarios',{
     controller: 'usuarioController',
     templateUrl: 'partials/usuario/usuarios.html'
+  }).when('/auth',{
+    controller: 'authController',
+    templateUrl: 'partials/auth.html'    
   }).otherwise({
     redirectTo: '/'
   });

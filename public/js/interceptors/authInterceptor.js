@@ -11,14 +11,12 @@ angular.module("app").factory('authInterceptor', function($q, $location) {
             else
               $location.path('/');*/
 
-            console.log(token)
-
             return config;
         },
 
         responseError: function(resposta) {
             if (resposta.status == 401) {
-              $location.path('/');
+              $location.path('/auth');
             }
 
             return $q.reject(resposta);

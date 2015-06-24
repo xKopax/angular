@@ -3,17 +3,17 @@ angular.module("app").controller('authController', function ($scope, AuthService
 	$scope.message = null;
 
 	$scope.login = function (usuario) {
-        AuthService.create(usuario).success(function (data) {
+        AuthService.create(usuario).$promise.then(function(data){
             $.jStorage.set('authorization', data.token);
             delete $scope.message;
             $location.path('/');
-        }).error(function (data, status) {
+        }).catch(function(error){
             $.jStorage.set('authorization', null);
-            if (status == 401)
+
+            if (error.data.statusCode == 401)
                 $scope.message = "Usuário Inválido.";
             else
-                $scope.message = "Aconteceu um problema: " + data.message;
+                $scope.message = "Aconteceu um problema: " + error.data.message;
         });
     };
-
 });
