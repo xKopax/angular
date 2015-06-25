@@ -1,0 +1,50 @@
+<div ng-include="'partials/menu.html'"></div>
+
+<div class="container">
+	 <form role="form" method="post">
+		 <div class="row">
+		   <div class="form-group col-md-12">
+			 <label for="titulo">Título:</label>
+			 <input type="text" class="form-control" id="titulo" ng-model="anuncio.titulo" />
+		   </div>
+		 </div>
+		<div class="row">
+		   <div class="form-group col-md-12">
+			 <label for="descricao">Descrição:</label>
+			 <textarea class="form-control" id="descricao" ng-model="anuncio.descricao"></textarea>
+		   </div>
+		</div>
+		<div class="row">
+		   <div class="form-group col-md-6">
+			 <label for="valor">Valor:</label>
+			 <input type="text" class="form-control" id="valor" pattern="[0-9]+([\,|\.][0-9]+)?"  ui-number-mask step="0.01"  ng-model="anuncio.valor"/>
+		   </div>
+		   <div class="form-group col-md-6">
+			 <div class="checkbox">
+				<br />
+				<label><input type="checkbox" ng-model="anuncio.status">Ativo</label>
+			 </div>
+		   </div>
+		</div>
+		<div class="row">
+		   <div class="form-group col-md-6">
+		     <label for="dataAnuncio">Data Anúncio:</label>
+		     <input type="text" class="form-control date" id="dataAnuncio"  ng-model="anuncio.dataAnuncio"/>
+		   </div>
+		   <div class="form-group col-md-6">
+  			 <label for="dataExpiracao">Data Expiração:</label>
+  			 <input type="text" class="form-control date" id="dataExpiracao"  ng-model="anuncio.dataExpiracao"/>
+		   </div>
+		</div>
+		<div class="row">
+		    <div class="form-group col-md-12">
+			  <label for="categoria">Categoria:</label>
+        <select class="form-control" id="categoria" ng-options="categoria.descricao as item.label for categoria in categorias" ng-model="anuncio.categoria">
+
+
+			</div>
+		</div>
+		    <a ng-click="save()" class="btn btn-success btn-sm" ng-disabled="frm.$invalid">Salvar</a>
+        <a ng-click="cancel()" class="btn btn-default btn-sm">Cancelar</a>
+	</form>
+</div>

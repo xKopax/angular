@@ -8,7 +8,10 @@ function($routeProvider, $locationProvider, $httpProvider) {
   $routeProvider.when('/', {
     templateUrl: 'partials/main.html',
     controller: 'homeController'
-  }).when('/categoria/new',{
+  })
+
+
+  .when('/categoria/new',{
     controller: 'categoriaController',
     templateUrl: 'partials/categoria/categoria.html'
   }).when('/categoria/detail/:id',{
@@ -17,7 +20,10 @@ function($routeProvider, $locationProvider, $httpProvider) {
   }).when('/categorias',{
     controller: 'categoriaController',
     templateUrl: 'partials/categoria/categorias.html'
-  }).when('/usuario/new',{
+  })
+
+
+  .when('/usuario/new',{
     controller: 'usuarioController',
     templateUrl: 'partials/usuario/usuario.html'
   }).when('/usuario/detail/:id',{
@@ -26,9 +32,22 @@ function($routeProvider, $locationProvider, $httpProvider) {
   }).when('/usarios',{
     controller: 'usuarioController',
     templateUrl: 'partials/usuario/usuarios.html'
-  }).when('/auth',{
+  })
+
+  .when('/anuncio/new',{
+    controller: 'anuncioController',
+    templateUrl: 'partials/anuncio/anuncio.html'
+  }).when('/anuncio/detail/:id',{
+    controller: 'anuncioController',
+    templateUrl: 'partials/anuncio/anuncio.html'
+  }).when('/anuncios',{
+    controller: 'anuncioController',
+    templateUrl: 'partials/anuncio/anuncio.html'
+  })
+
+  .when('/auth',{
     controller: 'authController',
-    templateUrl: 'partials/auth.html'    
+    templateUrl: 'partials/auth.html'
   }).otherwise({
     redirectTo: '/'
   });
