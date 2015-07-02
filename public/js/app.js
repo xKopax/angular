@@ -39,7 +39,7 @@ function($routeProvider, $locationProvider, $httpProvider) {
     templateUrl: 'partials/anuncio/anuncio.html'
   }).when('/anuncio/detail/:id',{
     controller: 'anuncioController',
-    templateUrl: 'partials/anuncio/anuncio.html'
+    templateUrl: 'partials/anuncio/detalhe.html'
   }).when('/anuncios',{
     controller: 'anuncioController',
     templateUrl: 'partials/anuncio/anuncio.html'

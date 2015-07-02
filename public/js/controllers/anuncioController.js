@@ -2,8 +2,6 @@ angular.module("app").controller('anuncioController', function ($scope, AnuncioS
   var p = 1;
   var busy = false;
 
-
-
   console.log($scope.categorias);
 
   $scope.editAnuncio = function (anuncioId) {
@@ -57,6 +55,7 @@ angular.module("app").controller('anuncioController', function ($scope, AnuncioS
   }
 
   incluir = function(){
+    $scope.anuncio.usuario = {"id": 7};
     AnuncioService.create($scope.anuncio).$promise.then(function(data){
       $location.path('/anuncios');
     }).catch(function(error){
