@@ -39,8 +39,9 @@
 		<div class="row">
 		    <div class="form-group col-sm-12">
 			  	<label for="categoria">Categoria:</label>
-        		<select class="form-control" id="categoria" ng-options="categoria.tipo for categoria in categorias" ng-model="anuncio.categoria">
+        		<select class="form-control" id="categoria" ng-model="anuncio.categoria.id">
         			<option value="">Selecione uma categoria</option>
+							<option ng-repeat="categoria in categorias" value="{{categoria.id}}">{{categoria.tipo}}</option>
         		</select>
 
 			</div>
