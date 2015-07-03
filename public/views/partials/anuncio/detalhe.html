@@ -1,8 +1,25 @@
 <div ng-include="'partials/menu.html'"></div>
 
 <div class="container">
-	<div class="page-header">
+	<div class="page-header text-center">
 		<h1>{{anuncio.titulo}}</h1>
+	</div>
+	<div class="jumbotron">
+		 <p>{{anuncio.descricao}}</p>
+	</div>
+	<div class="row">
+			<div class="col-sm-4">
+					<p><b>Valor Esperado:</b> {{anuncio.valor | currency:'R$'}}</p>
+			</div>
+			<div class="col-sm-4">
+				  <p><b>Anunciado em:</b> 	{{anuncio.dataAnuncio | date}}</p>
+			</div>
+			<div class="col-sm-4">
+				  <p><b>Expira em:</b> 	{{anuncio.dataExpiracao | date}}</p>
+			</div>
+	</div>
+	<div class="page-header text-center">
+		<h4>Dúvidas</h4>
 	</div>
 
 </div>
