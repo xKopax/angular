@@ -12,14 +12,22 @@
 					<p><b>Valor Esperado:</b> {{anuncio.valor | currency:'R$'}}</p>
 			</div>
 			<div class="col-sm-4">
-				  <p><b>Anunciado em:</b> 	{{anuncio.dataAnuncio | date}}</p>
+				  <p><b>Anunciado em:</b> 	{{anuncio.dataAnuncio | date:'dd/MM/yyyy'}}</p>
 			</div>
 			<div class="col-sm-4">
-				  <p><b>Expira em:</b> 	{{anuncio.dataExpiracao | date}}</p>
+				  <p><b>Expira em:</b> 	{{anuncio.dataExpiracao | date:'dd/MM/yyyy'}}</p>
 			</div>
 	</div>
 	<div class="page-header text-center">
 		<h4>Dúvidas</h4>
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">Aqui vai a pergunta</h3>
+		</div>
+		<div class="panel-body">
+			Aqui vai a resposta
+		</div>
 	</div>
 
 </div>
