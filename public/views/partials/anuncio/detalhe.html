@@ -21,12 +21,12 @@
 	<div class="page-header text-center">
 		<h4>Dúvidas</h4>
 	</div>
-	<div class="panel panel-default">
+	<div class="panel panel-default" ng-repeat="pergunta in anuncio.pergunta">
 		<div class="panel-heading">
-			<h3 class="panel-title">Aqui vai a pergunta</h3>
+			<h3 class="panel-title">{{pergunta.pergunta}}</h3>
 		</div>
 		<div class="panel-body">
-			Aqui vai a resposta
+			{{pergunta.resposta.respota}}
 		</div>
 	</div>
 
