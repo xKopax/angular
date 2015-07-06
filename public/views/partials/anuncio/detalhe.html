@@ -21,12 +21,20 @@
 	<div class="page-header text-center">
 		<h4>Dúvidas</h4>
 	</div>
-	<div class="panel panel-default" ng-repeat="pergunta in anuncio.pergunta">
+	<form role="form" method="post">
+		 <div class="row">
+		   <div class="form-group col-sm-12">
+			 <label for="titulo">Pergunta:</label>
+		   <textarea class="form-control" id="pergunta" ng-model="pergunta.pergunta"></textarea>
+		   </div>
+		 </div>
+	</form>
+	<div class="panel panel-default" ng-repeat="pergunta in anuncio.perguntas">
 		<div class="panel-heading">
 			<h3 class="panel-title">{{pergunta.pergunta}}</h3>
 		</div>
-		<div class="panel-body">
-			{{pergunta.resposta.respota}}
+		<div class="panel-body" ng-repeat="resposta in pergunta.respostas">
+			{{resposta.resposta}}
 		</div>
 	</div>
 
