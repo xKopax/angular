@@ -1,4 +1,4 @@
-angular.module("app").controller('anuncioController', function ($scope, AnuncioService, CategoriaService , $location, $routeParams, lodash) {
+angular.module("app").controller('anuncioController', function ($scope, AnuncioService, CategoriaService, PerguntaService, $location, $routeParams, lodash) {
   var p = 1;
   var busy = false;
 
@@ -69,6 +69,22 @@ angular.module("app").controller('anuncioController', function ($scope, AnuncioS
     }).catch(function(error){
       console.log(error);
     })
+  }
+
+  $scope.perguntar = function(){
+    $scope.pergunta.anuncio = {"id": $routeParams.id};
+    $scope.pergunta.usuario = {"id": 7};
+    PerguntaService.create($scope.pergunta).$promise.then(function(data){
+      $scope.pergunta ="";
+      $scope.anuncio = AnuncioService.show({id: $routeParams.id});
+    }).catch(function(error){
+      console.log(error);
+    })
+     console.log("perguntando");
+  }
+
+  $scope.buscar = function(){
+    console.log($scope.search);
   }
 
 });

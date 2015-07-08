@@ -8,7 +8,7 @@
       </button>
       <a class="navbar-brand" href="#">YoQuiero</a>
     </div>
-    <div class="navbar-collapse collapse" id="searchbar">
+    <div class="navbar-collapse collapse" id="searchbar" >
 
       <ul class="nav navbar-nav navbar-right">
         <li id="userPage">
@@ -19,9 +19,9 @@
 
      <form class="navbar-form">
         <div class="form-group" style="display:inline;">
-          <div class="input-group" style="display:table;">
-            <input class="form-control" name="search" placeholder="Pesquisar por ..." autocomplete="off" autofocus="autofocus" type="text">
-            <span class="input-group-addon" style="width:1%;"><span class="glyphicon glyphicon-search"></span></span>
+          <div class="input-group" style="display:table;" ng-controller="anuncioController">
+            <input class="form-control" name="search" placeholder="Pesquisar por ..." autocomplete="off" autofocus="autofocus" type="text" ng-model="search" ng-keyup="$event.keyCode == 13 ? buscar() : null" >
+            <span class="input-group-addon" style="width:1%;"><span class="glyphicon glyphicon-search" ng-click="buscar()"></span></span>
           </div>
         </div>
       </form>
