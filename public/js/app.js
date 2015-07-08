@@ -42,7 +42,7 @@ function($routeProvider, $locationProvider, $httpProvider) {
     templateUrl: 'partials/anuncio/detalhe.html'
   }).when('/anuncios',{
     controller: 'anuncioController',
-    templateUrl: 'partials/anuncio/anuncio.html'
+    templateUrl: 'partials/anuncio/anuncios.html'
   })
 
   .when('/auth',{
