@@ -1,11 +1,20 @@
 angular.module("app").controller('anuncioController', function ($scope, AnuncioService, CategoriaService, PerguntaService, $location, $routeParams, lodash) {
   var p = 1;
   var busy = false;
+  var search;
+  var qry;
 
   $scope.nextPage = function(){
     if (busy) return;
     busy = true;
-    AnuncioService.query({page:p}).$promise.then(
+
+    if ($scope.search){
+      qry = {page:p, search: $scope.search};
+    } else {
+      qry = {page:p};
+    }
+
+    AnuncioService.query(qry).$promise.then(
       function(data){
         for (var i = 0; i < data.length; i++) {
           if ($scope.categorias.indexOf(data[i]) == 0)
@@ -84,7 +93,8 @@ angular.module("app").controller('anuncioController', function ($scope, AnuncioS
   }
 
   $scope.buscar = function(){
-    console.log($scope.search);
+    p = 1;
+    $scope.nextPage();
   }
 
 });
