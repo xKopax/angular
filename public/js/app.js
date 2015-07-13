@@ -49,7 +49,7 @@ function($routeProvider, $locationProvider, $httpProvider) {
     controller: 'authController',
     templateUrl: 'partials/auth.html'
   }).otherwise({
-    redirectTo: '/'
+    redirectTo: '/anuncios'
   });
 
 }]);

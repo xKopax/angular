@@ -2,6 +2,25 @@ angular.module("app").controller('categoriaController', function ($scope, Catego
   var p = 1;
   var busy = false;
 
+  $scope.nextPage = function(){
+    if (busy) return;
+    busy = true;
+    CategoriaService.query({page:p}).$promise.then(
+      function(data){
+        for (var i = 0; i < data.length; i++) {
+          if ($scope.categorias.indexOf(data[i]) == 0)
+            $scope.categorias.push(data[i]);
+        }
+        p++;
+        busy = false;
+      }
+    ).catch(function(error){
+      console.log(error);
+    })
+
+
+  }
+
   $scope.editCategoria = function (categoriaId) {
       $location.path('/categoria/detail/' + categoriaId);
   };
@@ -38,24 +57,6 @@ angular.module("app").controller('categoriaController', function ($scope, Catego
     $scope.categorias = CategoriaService.query();
   }
 
-  $scope.nextPage = function(){
-    if (busy) return;
-    busy = true;
-    CategoriaService.query({page:p}).$promise.then(
-      function(data){
-        for (var i = 0; i < data.length; i++) {
-          if ($scope.categorias.indexOf(data[i]) == 0)
-            $scope.categorias.push(data[i]);
-        }
-        p++;
-        busy = false;
-      }
-    ).catch(function(error){
-      console.log(error);
-    })
-
-
-  }
 
   if($routeParams.id) {
     $scope.categoria = CategoriaService.show({id: $routeParams.id});

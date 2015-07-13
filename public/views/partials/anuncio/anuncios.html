@@ -4,7 +4,7 @@
       <table class="table table-striped table-condensed table-hover">
           <tbody>
           <tr ng-repeat="anuncio in anuncios">
-              <td>{{ anuncio.titulo }}</td>
+              <td ng-click="editAnuncio(anuncio.id)">{{ anuncio.titulo }}</td>
           </tr>
           </tbody>
       </table>

@@ -2,6 +2,23 @@ angular.module("app").controller('anuncioController', function ($scope, AnuncioS
   var p = 1;
   var busy = false;
 
+  $scope.nextPage = function(){
+    if (busy) return;
+    busy = true;
+    AnuncioService.query({page:p}).$promise.then(
+      function(data){
+        for (var i = 0; i < data.length; i++) {
+          if ($scope.categorias.indexOf(data[i]) == 0)
+            $scope.categorias.push(data[i]);
+        }
+        p++;
+        busy = false;
+      }
+    ).catch(function(error){
+      console.log(error);
+    })
+  }
+
   console.log($scope.categorias);
 
   $scope.editAnuncio = function (anuncioId) {
@@ -25,23 +42,6 @@ angular.module("app").controller('anuncioController', function ($scope, AnuncioS
   function loadAnuncios(){
     $scope.anuncios = AnuncioService.query();
     $scope.categorias = CategoriaService.query();
-  }
-
-  $scope.nextPage = function(){
-    if (busy) return;
-    busy = true;
-    AnuncioService.query({page:p}).$promise.then(
-      function(data){
-        console.log(data);
-        for (var i = 0; i < data.length; i++) {
-          $scope.anuncios.push(data[i]);
-        }
-        p++;
-        busy = false;
-      }
-    ).catch(function(error){
-      console.log(error);
-    })
   }
 
   if($routeParams.id) {
