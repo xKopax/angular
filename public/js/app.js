@@ -43,6 +43,9 @@ function($routeProvider, $locationProvider, $httpProvider) {
   }).when('/anuncios',{
     controller: 'anuncioController',
     templateUrl: 'partials/anuncio/anuncios.html'
+  }).when('/anuncios/:search',{
+    controller: 'anuncioController',
+    templateUrl: 'partials/anuncio/anuncios.html'
   })
 
   .when('/auth',{
